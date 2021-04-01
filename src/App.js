@@ -23,6 +23,7 @@ class App extends Component {
          Hello, React!!
          <Subject title={this.state.subject.title} sub={this.state.subject.sub}></Subject>
          <TOC data={this.state.contents}></TOC>
+         <Subject></Subject>
          <Content title="HTML" desc="HTML is HyperText Markup Language 5"></Content>
        </div>
      );
