@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      mode:'read',
+      mode:'welcome',
       subject:{title:"Web", sub:"World Wide Web!"},
         welcome:{title:"Welcome", desc:"Hello, React!!"},
       contents:[
@@ -37,6 +37,10 @@ class App extends Component {
          Hello, React!!
          <Subject title={this.state.subject.title}
                   sub={this.state.subject.sub}
+                  onChangePage={function(e) {
+                    this.setState({
+                      mode:'welcome'
+                    });}.bind(this)}
          ></Subject>
          {/* <header>
           <h1><a href="/" onClick={function(e) {
@@ -50,7 +54,12 @@ class App extends Component {
           }.bind(this)}>{this.state.subject.title}</a></h1>
           {this.state.subject.sub}
         </header> */}
-         <TOC data={this.state.contents}></TOC>
+         <TOC onChangePage={function(){
+          this.setState({
+            mode:'read'
+          });}.bind(this)}
+
+         data={this.state.contents}></TOC>
          <Content title={_title} desc={_desc}></Content>
        </div>
      );

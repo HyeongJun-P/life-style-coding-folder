@@ -5,7 +5,7 @@ class Content extends Component {
       console.log('Content render');
 
       return(
-        <article>
+        <article className="Article">
           <h2>{this.props.title}</h2>
           {this.props.desc}
         </article>
