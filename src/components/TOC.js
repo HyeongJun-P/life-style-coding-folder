@@ -5,9 +5,9 @@ class TOC extends Component {
   render(){
     console.log('TOC render');
 
-    var lists = [];
-    var data = this.props.data;
-    var i = 0;
+    let lists = [];
+    let data = this.props.data;
+    let i = 0;
     while(i < data.length){
       lists.push(<li><a href={"/content/"+data[i].id}>{data[i].title}</a></li>)
       i = i + 1;
