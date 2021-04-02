@@ -10,23 +10,43 @@ class TOC extends Component {
     let i = 0;
     while(i < data.length){
       lists.push(
-      <li key = {data[i].id}>
-        <a
-          href={"/content/"+data[i].id}
-          onClick={function(e){
-            e.preventDefault();
-            this.props.onChangePage();
-          }.bind(this)}
-          >{data[i].title}
-        </a>
-      </li>);
+        <li key={data[i].id}>
+          <a 
+            href={"/content/"+data[i].id}
+            data-id={data[i].id}
+            onClick={function(e){
+              e.preventDefault();
+              this.props.onChangePage(e.target.dataset.id);
+            }.bind(this)}
+          >{data[i].title}</a>
+        </li>);
       i = i + 1;
     }
     {
       return(
        <nav className="Nav">
           <ul>
-             {lists}
+
+
+
+            {lists}
+
+
+
+             {/* {
+               this.props.data.map((value, idx, arr) => {
+                return (<li key = {value.id}>
+                <a
+                  href={"/content/"+value.id}
+                  onClick={function(e){
+                    e.preventDefault();
+                    this.props.onChangePage();
+                  }.bind(this)}
+                  >{value.title}
+                </a>
+              </li>)
+               })
+             } */}
           </ul>
      </nav>
     );
