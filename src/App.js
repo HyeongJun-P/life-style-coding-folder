@@ -48,9 +48,10 @@ class App extends Component {
     } else if (this.state.mode === "create") {
       _article = <CreateContent onSubmit={function(_title,_desc) {
         this.max_content_id = this.max_content_id + 1;
-        this.State.contents.push({id:this.max_content_id, title:_title, desc:_desc});
+       // this.State.contents.push({id:this.max_content_id, title:_title, desc:_desc});
+        let _contents = this.state.contents.concat({id:this.max_content_id, title:_title, desc:_desc})
         this.setState({
-          contents:this.state.contents
+          contents:_contents
         });
       }.bind(this)}></CreateContent>
     }
